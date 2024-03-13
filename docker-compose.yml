@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 services:
   postgres:
@@ -19,7 +19,7 @@ services:
       KC_DB_USERNAME: keycloak
       KC_DB_PASSWORD: ${POSTGRESPWD}
       KC_HTTP_ENABLED: "true"
-      KC_HOSTNAME: idp.ku0.de
+      KC_HOSTNAME: ${HOSTNAME}
       KC_HOSTNAME_STRICT: "false"
       KC_HOSTNAME_STRICT_HTTPS: "false"
       KEYCLOAK_ADMIN: admin
@@ -27,8 +27,6 @@ services:
       KC_PROXY-HEADERS: xforwarded
     command:
       - start
-        #ports:
-      #- "8080:8080"
     depends_on:
       - postgres
     restart: always
@@ -46,4 +44,3 @@ services:
 
 volumes:
   postgres_data:
-
