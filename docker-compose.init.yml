@@ -1,0 +1,5 @@
+version: "3.7"
+
+services:
+  certbot:
+    command: certonly --webroot --webroot-path=/var/www/certbot --email ${CERTBOT_EMAIL} --agree-tos --no-eff-email -d ${TF_VAR_IDP_HOSTNAME}
